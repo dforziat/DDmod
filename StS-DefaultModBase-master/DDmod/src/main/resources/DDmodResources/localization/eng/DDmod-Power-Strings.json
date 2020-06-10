@@ -6,5 +6,9 @@
 "DDmod:RarePower": {
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+},
+"DDmod:EasePower": {
+        "NAME": "Ease",
+        "DESCRIPTIONS": ["Whenever a card is Exhausted, NL gain 1 HP."]
 }
 }

@@ -416,7 +416,8 @@ public class DDmod implements
         BaseMod.addCard(new DefaultRareSkill());
         BaseMod.addCard(new DefaultRarePower());
         BaseMod.addCard(new RapidStrikeAttack());
-        BaseMod.addCard(new OverwhelmingPowerAttack());
+        BaseMod.addCard(new UnstoppableAttack());
+        BaseMod.addCard(new EasePowerCard());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -434,7 +435,11 @@ public class DDmod implements
         UnlockTracker.unlockCard(DefaultRareAttack.ID);
         UnlockTracker.unlockCard(DefaultRareSkill.ID);
         UnlockTracker.unlockCard(DefaultRarePower.ID);
-        
+        UnlockTracker.unlockCard(RapidStrikeAttack.ID);
+        UnlockTracker.unlockCard(UnstoppableAttack.ID);
+        UnlockTracker.unlockCard(EasePowerCard.ID);
+
+
         logger.info("Done adding cards!");
     }
     

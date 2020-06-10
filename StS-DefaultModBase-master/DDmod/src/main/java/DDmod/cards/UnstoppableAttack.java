@@ -1,16 +1,11 @@
 package DDmod.cards;
 
 import DDmod.DDmod;
-import DDmod.characters.TheDefault;
 import basemod.abstracts.CustomCard;
-import basemod.helpers.BaseModCardTags;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
-import com.megacrit.cardcrawl.actions.unique.VampireDamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,13 +14,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ReaperEffect;
 
-import javax.swing.text.html.HTMLDocument;
-import java.util.ArrayList;
-import java.util.List;
-
 import static DDmod.DDmod.makeCardPath;
 
-public class OverwhelmingPowerAttack extends CustomCard {
+public class UnstoppableAttack extends CustomCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -35,7 +26,7 @@ public class OverwhelmingPowerAttack extends CustomCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DDmod.makeID(OverwhelmingPowerAttack.class.getSimpleName());
+    public static final String ID = DDmod.makeID(UnstoppableAttack.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public static final String IMG = makeCardPath("Attack.png");//TODO get new image
@@ -69,7 +60,7 @@ public class OverwhelmingPowerAttack extends CustomCard {
 
     // /STAT DECLARATION/
 
-    public OverwhelmingPowerAttack() {
+    public UnstoppableAttack() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         exhaust = true;

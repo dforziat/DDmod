@@ -14,5 +14,9 @@
 "DDmod:AllInPower": {
         "NAME": "All In",
         "DESCRIPTIONS": ["You will skip the next #b", " turn.", " turns."]
-}
+},
+        "DDmod:BurningFumesPower": {
+                "NAME": "Burning Fumes",
+                "DESCRIPTIONS": ["When a card is Exhausted, deal #b", " damage to all enemies.", "damage to all enemies."]
+        }
 }

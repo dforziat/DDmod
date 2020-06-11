@@ -65,5 +65,9 @@
   "DDmod:AllInSkill": {
     "NAME": "All In",
     "DESCRIPTION": "Gain energy equal to the cost of all the cards in your hand, NL skip your next !M! turns."
+  },
+  "DDmod:BurningFumesPowerCard": {
+    "NAME": "Burning Fumes",
+    "DESCRIPTION": "When a card is Exhausted, deal !M! damage to all enemies."
   }
 }

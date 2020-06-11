@@ -418,6 +418,7 @@ public class DDmod implements
         BaseMod.addCard(new RapidStrikeAttack());
         BaseMod.addCard(new UnstoppableAttack());
         BaseMod.addCard(new EasePowerCard());
+        BaseMod.addCard(new AllInSkill());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -438,6 +439,7 @@ public class DDmod implements
         UnlockTracker.unlockCard(RapidStrikeAttack.ID);
         UnlockTracker.unlockCard(UnstoppableAttack.ID);
         UnlockTracker.unlockCard(EasePowerCard.ID);
+        UnlockTracker.unlockCard(AllInSkill.ID);
 
 
         logger.info("Done adding cards!");

@@ -61,5 +61,9 @@
   "DDmod:EasePowerCard": {
     "NAME": "Ease",
     "DESCRIPTION": "Whenever a card is Exhausted, NL gain 1 HP."
+  },
+  "DDmod:AllInSkill": {
+    "NAME": "All In",
+    "DESCRIPTION": "Gain energy equal to the cost of all the cards in your hand, NL skip your next !M! turns."
   }
 }

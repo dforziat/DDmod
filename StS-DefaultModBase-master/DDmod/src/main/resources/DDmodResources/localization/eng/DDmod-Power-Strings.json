@@ -10,5 +10,9 @@
 "DDmod:EasePower": {
         "NAME": "Ease",
         "DESCRIPTIONS": ["Whenever a card is Exhausted, NL gain 1 HP."]
+},
+"DDmod:AllInPower": {
+        "NAME": "All In",
+        "DESCRIPTIONS": ["You will skip the next #b", " turn.", " turns."]
 }
 }

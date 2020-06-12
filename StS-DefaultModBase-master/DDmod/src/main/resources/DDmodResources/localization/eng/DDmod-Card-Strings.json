@@ -74,5 +74,10 @@
     "NAME": "Poke",
     "DESCRIPTION": "Deal !D! damage !M! times.",
     "UPGRADE_DESCRIPTION": " NL Innate."
+  },
+  "DDmod:SpikedSkill": {
+    "NAME": "Spiked",
+    "DESCRIPTION": "Gain !M! thorns. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! thorns."
   }
 }

@@ -422,6 +422,7 @@ public class DDmod implements
         BaseMod.addCard(new AllInSkill());
         BaseMod.addCard(new BurningFumesPowerCard());
         BaseMod.addCard(new PokeAttack());
+        BaseMod.addCard(new SpikedSkill());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -446,6 +447,7 @@ public class DDmod implements
         UnlockTracker.unlockCard(AllInSkill.ID);
         UnlockTracker.unlockCard(BurningFumesPowerCard.ID);
         UnlockTracker.unlockCard(PokeAttack.ID);
+        UnlockTracker.unlockCard(SpikedSkill.ID);
 
 
         logger.info("Done adding cards!");

@@ -69,5 +69,10 @@
   "DDmod:BurningFumesPowerCard": {
     "NAME": "Burning Fumes",
     "DESCRIPTION": "When a card is Exhausted, deal !M! damage to all enemies."
+  },
+  "DDmod:PokeAttack": {
+    "NAME": "Poke",
+    "DESCRIPTION": "Deal !D! damage !M! times.",
+    "UPGRADE_DESCRIPTION": " NL Innate."
   }
 }

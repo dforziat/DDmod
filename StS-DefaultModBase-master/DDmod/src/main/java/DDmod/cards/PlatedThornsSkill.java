@@ -1,21 +1,18 @@
 package DDmod.cards;
 
-import DDmod.powers.AllInPower;
-import DDmod.powers.EasePower;
-import basemod.helpers.BaseModCardTags;
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import DDmod.DDmod;
-import DDmod.characters.TheDefault;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import static DDmod.DDmod.makeCardPath;
 
-public class AllInSkill extends AbstractDynamicCard {
+public class PlatedThornsSkill extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -26,7 +23,7 @@ public class AllInSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DDmod.makeID(AllInSkill.class.getSimpleName());
+    public static final String ID = DDmod.makeID(PlatedThornsSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/
@@ -40,39 +37,39 @@ public class AllInSkill extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.RED;
 
     private static final int COST = 3;
-    private static final int MAGIC_NUMBER = 2; //turns skipped
-    private static int energyGained = 0;
-
+    private static final int UPGRADE_COST = -1;
+    int initialHandSize = 0;
+    private AbstractPlayer p;
 
     // /STAT DECLARATION/
 
 
-    public AllInSkill() {
+    public PlatedThornsSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = MAGIC_NUMBER;
-        magicNumber = baseMagicNumber;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractCard c : p.hand.group) {
-            if(c.cost < 0){
-                energyGained += 1;
-            }else {
-                energyGained += c.cost;
-            }
-        }
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(energyGained - COST));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AllInPower(p, magicNumber)));
+        int initialHandSize = p.gameHandSize;
+        this.p = p;
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(false, true, true));
+
     }
+
+@Override
+public void triggerOnEndOfPlayerTurn(){
+    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p,initialHandSize - p.gameHandSize), initialHandSize - p.gameHandSize));
+    DDmod.logger.info("final hand size" + p.gameHandSize);
+}
+
 
     //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(-1);
+            upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }

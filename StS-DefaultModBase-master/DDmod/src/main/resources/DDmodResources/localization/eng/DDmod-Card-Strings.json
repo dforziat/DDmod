@@ -79,5 +79,13 @@
     "NAME": "Spiked",
     "DESCRIPTION": "Gain !M! thorns. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! thorns."
+  },
+  "DDmod:PlatedThornsSkill": {
+    "NAME": "Plated Thorns",
+    "DESCRIPTION": "Exhaust X cards. NL Gain X thorns."
+  },
+  "DDmod:ScaleUpSkill": {
+    "NAME": "Scale Up",
+    "DESCRIPTION": "Double your thorns. NL Exhaust."
   }
 }

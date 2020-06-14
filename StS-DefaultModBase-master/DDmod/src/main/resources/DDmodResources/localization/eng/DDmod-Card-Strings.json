@@ -63,7 +63,7 @@
     "DESCRIPTION": "Whenever a card is Exhausted, NL gain 1 HP."
   },
   "DDmod:AllInSkill": {
-    "NAME": "All In",
+    "NAME": "All-In",
     "DESCRIPTION": "Gain energy equal to the cost of all the cards in your hand, NL skip your next !M! turns."
   },
   "DDmod:BurningFumesPowerCard": {
@@ -76,8 +76,21 @@
     "UPGRADE_DESCRIPTION": " NL Innate."
   },
   "DDmod:SpikedSkill": {
-    "NAME": "Spiked",
+    "NAME": "Spikes",
     "DESCRIPTION": "Gain !M! thorns. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! thorns."
+  },
+  "DDmod:PlatedThornsSkill": {
+    "NAME": "Plated Thorns",
+    "DESCRIPTION": "Exhaust your hand. NL Gain thorns for every card exhausted."
+  },
+  "DDmod:ScaleUpSkill": {
+    "NAME": "Scale Up",
+    "DESCRIPTION": "Double your thorns. NL Exhaust."
+  },
+  "DDmod:GrandUltimatumAttack": {
+    "NAME": "Grand Ultimatum",
+    "DESCRIPTION": "Can only be played if there are no other cards in your draw pile, discard pile, and hand. NL Deal !D! to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Cannot use."
   }
 }

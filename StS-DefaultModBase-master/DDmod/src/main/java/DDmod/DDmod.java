@@ -9,10 +9,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -383,7 +385,7 @@ public class DDmod implements
     }
     
     // ================ /ADD RELICS/ ===================
-    
+
     
     // ================ ADD CARDS ===================
     
@@ -423,6 +425,9 @@ public class DDmod implements
         BaseMod.addCard(new BurningFumesPowerCard());
         BaseMod.addCard(new PokeAttack());
         BaseMod.addCard(new SpikedSkill());
+        BaseMod.addCard(new PlatedThornsSkill());
+        BaseMod.addCard(new ScaleUpSkill());
+        BaseMod.addCard(new GrandUltimatumAttack());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -448,6 +453,9 @@ public class DDmod implements
         UnlockTracker.unlockCard(BurningFumesPowerCard.ID);
         UnlockTracker.unlockCard(PokeAttack.ID);
         UnlockTracker.unlockCard(SpikedSkill.ID);
+        UnlockTracker.unlockCard(PlatedThornsSkill.ID);
+        UnlockTracker.unlockCard(ScaleUpSkill.ID);
+        UnlockTracker.unlockCard(GrandUltimatumAttack.ID);
 
 
         logger.info("Done adding cards!");
@@ -531,4 +539,6 @@ public class DDmod implements
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
     }
+
+
 }

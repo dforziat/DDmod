@@ -43,8 +43,7 @@ public class ScaleUpSkill extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.RED;
 
     private static final int COST = 2;
-    private static final int MAGIC_NUMBER = 2;
-    private static final int UPGRADE_COST = -1;
+    private static final int MAGIC_NUMBER = 1;
     private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -59,9 +58,9 @@ public class ScaleUpSkill extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractPower thornsPower = p.getPower("Thorns");
+        AbstractPower thornsPower = p.getPower(ThornsPower.POWER_ID);
         if(thornsPower != null){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, thornsPower.amount * magicNumber), thornsPower.amount));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, thornsPower.amount * magicNumber), (thornsPower.amount * magicNumber)));
         }
     }
 
@@ -71,6 +70,7 @@ public class ScaleUpSkill extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_MAGIC);
+            this.rawDescription = UPGRADE_DESC;
             initializeDescription();
         }
     }

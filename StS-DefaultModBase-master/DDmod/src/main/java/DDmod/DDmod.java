@@ -428,6 +428,7 @@ public class DDmod implements
         BaseMod.addCard(new PlatedThornsSkill());
         BaseMod.addCard(new ScaleUpSkill());
         BaseMod.addCard(new GrandUltimatumAttack());
+        BaseMod.addCard(new SpikeShotSkill());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -456,6 +457,7 @@ public class DDmod implements
         UnlockTracker.unlockCard(PlatedThornsSkill.ID);
         UnlockTracker.unlockCard(ScaleUpSkill.ID);
         UnlockTracker.unlockCard(GrandUltimatumAttack.ID);
+        UnlockTracker.unlockCard(SpikeShotSkill.ID);
 
 
         logger.info("Done adding cards!");

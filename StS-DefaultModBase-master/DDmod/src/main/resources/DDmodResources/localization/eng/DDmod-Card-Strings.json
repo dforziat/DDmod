@@ -86,11 +86,17 @@
   },
   "DDmod:ScaleUpSkill": {
     "NAME": "Scale Up",
-    "DESCRIPTION": "Double your thorns. NL Exhaust."
+    "DESCRIPTION": "Double your thorns. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Triple your thorns. NL Exhaust."
+
   },
   "DDmod:GrandUltimatumAttack": {
     "NAME": "Grand Ultimatum",
     "DESCRIPTION": "Can only be played if there are no other cards in your draw pile, discard pile, and hand. NL Deal !D! to ALL enemies.",
     "UPGRADE_DESCRIPTION": "Cannot use."
+  },
+  "DDmod:SpikeShotSkill": {
+    "NAME": "Spike Shot",
+    "DESCRIPTION": "Remove all thorns, NL deal that much damage !M! times to all enemies."
   }
 }

@@ -98,5 +98,10 @@
   "DDmod:SpikeShotSkill": {
     "NAME": "Spike Shot",
     "DESCRIPTION": "Remove all thorns, NL deal that much damage !M! times to all enemies."
+  },
+  "DDmod:RechargeSkill": {
+    "NAME": "Recharge",
+    "DESCRIPTION": "Heal !M! HP. NL Skip your next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Exhaust."
   }
 }

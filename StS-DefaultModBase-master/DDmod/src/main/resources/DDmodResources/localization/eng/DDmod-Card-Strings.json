@@ -103,5 +103,9 @@
     "NAME": "Recharge",
     "DESCRIPTION": "Heal !M! HP. NL Skip your next turn. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Exhaust."
+  },
+  "DDmod:WildConcoctionSkill": {
+    "NAME": "Wild Concoction",
+    "DESCRIPTION": "Obtain a random potion."
   }
 }

@@ -9,7 +9,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -19,7 +18,6 @@ import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -434,6 +432,7 @@ public class DDmod implements
         BaseMod.addCard(new GrandUltimatumAttack());
         BaseMod.addCard(new SpikeShotSkill());
         BaseMod.addCard(new RechargeSkill());
+        BaseMod.addCard(new WildConcoctionSkill());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -464,6 +463,7 @@ public class DDmod implements
         UnlockTracker.unlockCard(GrandUltimatumAttack.ID);
         UnlockTracker.unlockCard(SpikeShotSkill.ID);
         UnlockTracker.unlockCard(RechargeSkill.ID);
+        UnlockTracker.unlockCard(WildConcoctionSkill.ID);
 
 
         logger.info("Done adding cards!");

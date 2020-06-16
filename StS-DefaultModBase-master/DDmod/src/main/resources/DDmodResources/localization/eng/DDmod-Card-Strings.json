@@ -77,7 +77,7 @@
   },
   "DDmod:SpikedSkill": {
     "NAME": "Spikes",
-    "DESCRIPTION": "Gain !M! thorns. NL Exhaust.",
+    "DESCRIPTION": "Gain !M! thorns.",
     "UPGRADE_DESCRIPTION": "Gain !M! thorns."
   },
   "DDmod:PlatedThornsSkill": {

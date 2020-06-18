@@ -17,17 +17,10 @@ import static DDmod.DDmod.makeCardPath;
 
 public class PlatedThornsSkill extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Defend Gain 5 (8) block.
-     */
-
-
     // TEXT DECLARATION
 
     public static final String ID = DDmod.makeID(PlatedThornsSkill.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("PlatedThorns.png");
 
     // /TEXT DECLARATION/
 

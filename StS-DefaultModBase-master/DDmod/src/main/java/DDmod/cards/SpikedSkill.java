@@ -16,16 +16,11 @@ import static DDmod.DDmod.makeCardPath;
 
 public class SpikedSkill extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     */
-
 
     // TEXT DECLARATION
 
     public static final String ID = DDmod.makeID(SpikedSkill.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("Spikes.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 

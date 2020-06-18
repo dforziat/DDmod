@@ -31,7 +31,7 @@ public class RapidStrikeAttack extends CustomCard {
     public static final String ID = DDmod.makeID(RapidStrikeAttack.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public static final String IMG = makeCardPath("Attack.png");//TODO get new image
+    public static final String IMG = makeCardPath("RapidStrike.png");//TODO get new image
     // Setting the image as as easy as can possibly be now. You just need to provide the image name
     // and make sure it's in the correct folder. That's all.
     // There's makeCardPath, makeRelicPath, power, orb, event, etc..
@@ -85,7 +85,6 @@ public class RapidStrikeAttack extends CustomCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }

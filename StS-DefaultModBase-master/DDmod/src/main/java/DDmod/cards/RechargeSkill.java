@@ -20,17 +20,11 @@ import static DDmod.DDmod.makeCardPath;
 
 public class RechargeSkill extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Defend Gain 5 (8) block.
-     */
-
 
     // TEXT DECLARATION
 
     public static final String ID = DDmod.makeID(RechargeSkill.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("Recharge.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 

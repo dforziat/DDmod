@@ -3,16 +3,16 @@
 
     <!--Hello! You'll basically should only need to change these names and the steam path (just below)-->
     <!--The author name(s) as they appear in MTS and any other comments are in your ModTheSpire.json-->
-    <groupId>ddMod</groupId>
-    <artifactId>DDmod</artifactId>
-    <name>DD Mod</name>
-    <version>0.3.0</version>
+    <groupId>ArctosMods</groupId>
+    <artifactId>Retaliation</artifactId>
+    <name>Retaliation</name>
+    <version>0.4.0</version>
     <description>An Ironclad class expansion mod.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>01-23-2019</SlayTheSpire.version>
+        <SlayTheSpire.version>01-27-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.8.0</ModTheSpire.version>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:\Program Files (x86)\Steam\steamapps</Steam.path>

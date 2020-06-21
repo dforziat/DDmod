@@ -310,7 +310,7 @@ public class DDmod implements
         ModPanel settingsPanel = new ModPanel();
         
         // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("This is the text which goes next to the checkbox.",
+        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("Enable mod.",
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
                 enablePlaceholder, // Boolean it uses
                 settingsPanel, // The mod panel in which this button will be in
@@ -339,7 +339,7 @@ public class DDmod implements
         // part of the game, simply don't include the dungeon ID
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
-        BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
+       // BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -359,7 +359,7 @@ public class DDmod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
+       // BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
         
         logger.info("Done editing potions");
     }

@@ -87,9 +87,9 @@ public class DDmod implements
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
-    private static final String MODNAME = "DDMod";
-    private static final String AUTHOR = "DD"; // And pretty soon - You!
-    private static final String DESCRIPTION = "DD Test Mod";
+    private static final String MODNAME = "Retaliation";
+    private static final String AUTHOR = "Arctos Mods"; // And pretty soon - You!
+    private static final String DESCRIPTION = "Ironclad Expansion Mod";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -287,8 +287,8 @@ public class DDmod implements
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + TheDefault.Enums.THE_DEFAULT.toString());
         
-        BaseMod.addCharacter(new TheDefault("the Default", TheDefault.Enums.THE_DEFAULT),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheDefault.Enums.THE_DEFAULT);
+    //    BaseMod.addCharacter(new TheDefault("the Default", TheDefault.Enums.THE_DEFAULT),
+     //           THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheDefault.Enums.THE_DEFAULT);
         
         receiveEditPotions();
         logger.info("Added " + TheDefault.Enums.THE_DEFAULT.toString());

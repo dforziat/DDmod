@@ -33,7 +33,7 @@ public class PlatedThornsSkill extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.RED;
 
     private static final int COST = 3;
-    private static final int UPGRADE_COST = -1;
+    private static final int UPGRADE_COST = 2;
 
     // /STAT DECLARATION/
 

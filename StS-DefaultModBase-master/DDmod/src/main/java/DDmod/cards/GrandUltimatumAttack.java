@@ -42,7 +42,7 @@ public class GrandUltimatumAttack extends CustomCard {
 
     private static final int COST = 3;
     private static final int DAMAGE = 200;
-    private static final int UPGRADE_COST = -3;
+    private static final int UPGRADE_COST = 0;
 
 
     // /STAT DECLARATION/

@@ -45,7 +45,8 @@ public class PlatedThornsSkill extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = AbstractDungeon.player.hand.size();
+        int count = AbstractDungeon.player.hand.size() - 1;
+        DDmod.logger.info("Hand size: " + count);
         int i;
         for(i = 0; i < count; ++i) {
             AbstractDungeon.actionManager.addToBottom(new ExhaustAction(1, true, true, false, Settings.ACTION_DUR_XFAST));

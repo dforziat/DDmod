@@ -405,19 +405,6 @@ public class DDmod implements
         // Add the cards
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
-        
-     /*   BaseMod.addCard(new OrbSkill());
-        BaseMod.addCard(new DefaultSecondMagicNumberSkill());
-        BaseMod.addCard(new DefaultCommonAttack());
-        BaseMod.addCard(new DefaultAttackWithVariable());
-        BaseMod.addCard(new DefaultCommonSkill());
-        BaseMod.addCard(new DefaultCommonPower());
-        BaseMod.addCard(new DefaultUncommonSkill());
-        BaseMod.addCard(new DefaultUncommonAttack());
-        BaseMod.addCard(new DefaultUncommonPower());
-        BaseMod.addCard(new DefaultRareAttack());
-        BaseMod.addCard(new DefaultRareSkill());
-        BaseMod.addCard(new DefaultRarePower()); */
         //new cards
         BaseMod.addCard(new RapidStrikeAttack());
         BaseMod.addCard(new UnstoppableAttack());
@@ -431,7 +418,7 @@ public class DDmod implements
         BaseMod.addCard(new GrandUltimatumAttack());
         BaseMod.addCard(new SpikeShotSkill());
         BaseMod.addCard(new RechargeSkill());
-        BaseMod.addCard(new WildConcoctionSkill());
+        BaseMod.addCard(new MulticlassingSkill());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -450,7 +437,7 @@ public class DDmod implements
         UnlockTracker.unlockCard(GrandUltimatumAttack.ID);
         UnlockTracker.unlockCard(SpikeShotSkill.ID);
         UnlockTracker.unlockCard(RechargeSkill.ID);
-        UnlockTracker.unlockCard(WildConcoctionSkill.ID);
+        UnlockTracker.unlockCard(MulticlassingSkill.ID);
 
 
         logger.info("Done adding cards!");
@@ -467,7 +454,6 @@ public class DDmod implements
     
     @Override
     public void receiveEditStrings() {
-        logger.info("You seeing this?");
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
         
         // CardStrings
@@ -498,7 +484,7 @@ public class DDmod implements
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 getModID() + "Resources/localization/eng/DDmod-Orb-Strings.json");
         
-        logger.info("Done edittting strings");
+        logger.info("Done editing strings");
     }
     
     // ================ /LOAD THE TEXT/ ===================

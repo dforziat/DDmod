@@ -77,17 +77,17 @@
   },
   "DDmod:SpikedSkill": {
     "NAME": "Spikes",
-    "DESCRIPTION": "Gain !M! thorns.",
+    "DESCRIPTION": "Gain !M! Thorns.",
     "UPGRADE_DESCRIPTION": "Gain !M! thorns."
   },
   "DDmod:PlatedThornsSkill": {
     "NAME": "Plated Thorns",
-    "DESCRIPTION": "Exhaust your hand. NL Gain thorns for every card exhausted."
+    "DESCRIPTION": "Exhaust your hand. NL Gain Thorns for every card exhausted."
   },
   "DDmod:ScaleUpSkill": {
     "NAME": "Scale Up",
-    "DESCRIPTION": "Double your thorns. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Triple your thorns. NL Exhaust."
+    "DESCRIPTION": "Double your Thorns. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Triple your Thorns. NL Exhaust."
 
   },
   "DDmod:GrandUltimatumAttack": {
@@ -97,7 +97,7 @@
   },
   "DDmod:SpikeShotSkill": {
     "NAME": "Spike Shot",
-    "DESCRIPTION": "Remove all thorns, NL deal that much damage !M! times to all enemies."
+    "DESCRIPTION": "Remove all Thorns, NL deal that much damage !M! times to all enemies."
   },
   "DDmod:RechargeSkill": {
     "NAME": "Recharge",
@@ -107,5 +107,9 @@
   "DDmod:WildConcoctionSkill": {
     "NAME": "Wild Concoction",
     "DESCRIPTION": "Obtain a random potion."
+  },
+  "DDmod:MulticlassingSkill": {
+    "NAME": "Multiclassing",
+    "DESCRIPTION": "Add a random Rare card from any class to your hand. NL It cost 0."
   }
 }

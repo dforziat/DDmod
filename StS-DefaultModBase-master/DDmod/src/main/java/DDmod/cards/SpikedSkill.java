@@ -1,5 +1,6 @@
 package DDmod.cards;
 
+import DDmod.util.CustomTags;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -47,7 +48,8 @@ public class SpikedSkill extends AbstractDynamicCard {
     public SpikedSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber =  baseMagicNumber = MAGIC_NUMBER;
-       // exhaust = true;
+        this.tags.add(CustomTags.THORNS);
+        // exhaust = true;
     }
 
     // Actions the card should do.

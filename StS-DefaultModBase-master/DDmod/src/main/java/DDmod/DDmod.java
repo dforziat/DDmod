@@ -1,5 +1,6 @@
 package DDmod;
 
+import DDmod.events.ThornEvent;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -338,8 +339,8 @@ public class DDmod implements
         // part of the game, simply don't include the dungeon ID
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
-       // BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
-        
+        BaseMod.addEvent(ThornEvent.ID, ThornEvent.class);
+
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
     }

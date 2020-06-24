@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.characters.Watcher;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.daily.mods.BlueCards;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import DDmod.DDmod;
@@ -57,10 +58,9 @@ public class MulticlassingSkill extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard c = AbstractDungeon.returnTrulyRandomCard();
-        c.cost = 0;
-        AbstractDungeon.player.hand.addToHand(c);
-        //AbstractDungeon.actionManager.addToBottom();
+        AbstractCard randomCard = CardLibrary.getAnyColorCard(CardRarity.RARE);
+        randomCard.costForTurn = 0;
+        AbstractDungeon.player.hand.addToHand(randomCard);
     }
 
     //Upgraded stats.

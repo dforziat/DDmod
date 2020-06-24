@@ -1,5 +1,6 @@
 package DDmod.cards;
 
+import DDmod.util.CustomTags;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -45,6 +46,7 @@ public class ScaleUpSkill extends AbstractDynamicCard {
 
     public ScaleUpSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(CustomTags.THORNS);
         magicNumber =  baseMagicNumber = MAGIC_NUMBER;
         exhaust = true;
     }

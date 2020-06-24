@@ -1,6 +1,9 @@
 package DDmod.cards;
 
+import DDmod.util.CustomTags;
+import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -40,6 +43,7 @@ public class PlatedThornsSkill extends AbstractDynamicCard {
 
     public PlatedThornsSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(CustomTags.THORNS);
     }
 
     // Actions the card should do.

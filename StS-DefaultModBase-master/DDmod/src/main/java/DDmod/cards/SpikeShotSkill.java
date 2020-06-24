@@ -1,5 +1,6 @@
 package DDmod.cards;
 
+import DDmod.util.CustomTags;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -55,6 +56,7 @@ public class SpikeShotSkill extends CustomCard {
     public SpikeShotSkill() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber =  baseMagicNumber = MAGIC_NUMBER;
+        this.tags.add(CustomTags.THORNS);
     }
 
     // Actions the card should do.

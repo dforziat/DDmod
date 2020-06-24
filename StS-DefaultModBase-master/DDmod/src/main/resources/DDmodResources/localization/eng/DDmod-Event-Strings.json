@@ -17,5 +17,19 @@
       "[Leave]",
       "Select card to remove."
     ]
+  },
+  "DDmod:ThornEvent": {
+    "NAME": "Prickly Situation",
+    "DESCRIPTIONS": [
+      "As you move through ~The~ ~City~ you come across a #pPurple #pMirror. NL You look at it, but you see no reflection.",
+      "You see no one but #g~You~ #g~wish~ #g~to~ #g~become~ #g~someone.~",
+      "#r@YOU@ #r@EXIST@ #r@AND@ #r@ARE@ #r@VALID!@",
+      "#yYou #yare #yat #ypeace #ywith #yyour #ypresence.",
+      "You have no hands."
+    ],
+    "OPTIONS": [
+      "[Accept] #gGain a random Thorn card.",
+      "[Leave]"
+    ]
   }
 }

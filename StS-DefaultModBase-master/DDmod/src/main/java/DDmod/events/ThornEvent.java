@@ -32,14 +32,10 @@ public class ThornEvent extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("IdentityCrisisEvent.png");
+    public static final String IMG = makeEventPath("ThornsEvent.jpg");
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
-    private float HEALTH_LOSS_PERCENTAGE = 0.03F; // 3%
-    private float HEALTH_LOSS_PERCENTAGE_LOW_ASCENSION = 0.05F; // 5%
-
-    private int healthdamage; //The actual number of how much Max HP we're going to lose.
 
     public ThornEvent() {
         super(NAME, DESCRIPTIONS[0], IMG);
@@ -78,49 +74,11 @@ public class ThornEvent extends AbstractImageEvent {
 
                         break; // Onto screen 1 we go.
                     case 1: // If you press button the second button (Button at index 1), in this case: Deinal
-
-                        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.MED, false);
-                        // Shake the screen
-                        CardCrawlGame.sound.play("BLUNT_FAST");  // Play a hit sound
-                        AbstractDungeon.player.decreaseMaxHealth(healthdamage); // Lose max HP
-                        if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
-                            // If you have cards you can remove - remove a card
-                            AbstractDungeon.gridSelectScreen.open(
-                                    CardGroup.getGroupWithoutBottledCards(
-                                            AbstractDungeon.player.masterDeck.getPurgeableCards()),
-                                    1, OPTIONS[6], false, false, false, true);
-                        }
-
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                        this.imageEventText.clearRemainingOptions();
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]); // Update the text of the event
+                        this.imageEventText.updateDialogOption(0, OPTIONS[1]); // 1. Change the first button to the [Leave] button
+                        this.imageEventText.clearRemainingOptions(); // 2. and remove all others
                         screenNum = 1;
-
-                        // Same as before. A note here is that you can also do
-                        // imageEventText.clearAllDialogs();
-                        // imageEventText.setDialogOption(OPTIONS[1]);
-                        // imageEventText.setDialogOption(OPTIONS[4]);
-                        // (etc.)
-                        // And that would also just set them into slot 0, 1, 2... in order, just like what we do in the very beginning
-
-                        break; // Onto screen 1 we go.
-                    case 2: // If you press button the third button (Button at index 2), in this case: Acceptance
-
-                        AbstractCard c = new Apotheosis().makeCopy();
-                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2)));
-
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                        this.imageEventText.clearRemainingOptions();
-                        screenNum = 1;
-                        break;
-                    case 3: // If you press button the fourth button (Button at index 3), in this case: TOUCH
-                        imageEventText.loadImage("DDmodResources/images/events/IdentityCrisisEvent2.png"); // Change the shown image
-                        // Other than that, this option doesn't do anything special.
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                        this.imageEventText.clearRemainingOptions();
-                        screenNum = 1;
+                        openMap(); // You'll open the map and end the event.
                         break;
                 }
                 break;

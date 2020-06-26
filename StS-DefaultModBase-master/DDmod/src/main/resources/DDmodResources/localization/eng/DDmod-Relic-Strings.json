@@ -30,5 +30,12 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+    "DDmod:BarbedSlagRelic": {
+      "NAME": "Barbed Slag",
+      "FLAVOR": "Dangerous to hold, but useful nonetheless.",
+      "DESCRIPTIONS": [
+        "Whenever you gain Thorns, gain 1 more."
+      ]
+    }
   }
-}

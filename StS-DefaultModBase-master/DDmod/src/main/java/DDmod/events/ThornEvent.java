@@ -1,7 +1,9 @@
 package DDmod.events;
 
 import DDmod.DDmod;
+import DDmod.relics.BarbedSlagRelic;
 import DDmod.util.CustomTags;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -35,20 +37,24 @@ public class ThornEvent extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("ThornsEvent.jpg");
     private static boolean isIronclad = false;
+    private static int gold = 75;
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
 
     public ThornEvent() {
         super(NAME, DESCRIPTIONS[0], IMG);
-        if(AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.IRONCLAD) {
+        DDmod.logger.info("Player Chosen class " +AbstractDungeon.player.chosenClass);
+        if (AbstractDungeon.player.chosenClass.equals(AbstractPlayer.PlayerClass.IRONCLAD)) {
             isIronclad = true;
         }
-            // The first dialogue options available to us.
-        if(isIronclad){
+        // The first dialogue options available to us.
+        if (isIronclad) {
             imageEventText.setDialogOption(OPTIONS[0]); // Gain a random thorns card
-        }else{
-            imageEventText.setDialogOption(OPTIONS[2]); // Gain a random card
+            imageEventText.setDialogOption(OPTIONS[3]); // gain a thorns relic
+        } else {
+            imageEventText.setDialogOption(OPTIONS[2]); // Gain gold
+            imageEventText.setDialogOption(OPTIONS[4]); // Gain random relic
         }
         imageEventText.setDialogOption(OPTIONS[1]); // Leave
 
@@ -67,24 +73,36 @@ public class ThornEvent extends AbstractImageEvent {
                         // we'll still continue the switch (screenNum) statement. It'll find screen 1 and do it's actions
                         // (in our case, that's the final screen, but you can chain as many as you want like that)
 
-                         ArrayList<AbstractCard> cardList = CardLibrary.getAllCards();
-                         ArrayList<AbstractCard> thornCardList = new ArrayList<>();
-                         for(AbstractCard card : cardList){
-                             if(card.hasTag(CustomTags.THORNS)){
-                                 thornCardList.add(card);
-                             }
-                         }
+                        ArrayList<AbstractCard> cardList = CardLibrary.getAllCards();
+                        ArrayList<AbstractCard> thornCardList = new ArrayList<>();
+                        for (AbstractCard card : cardList) {
+                            if (card.hasTag(CustomTags.THORNS)) {
+                                thornCardList.add(card);
+                            }
+                        }
                         Random rand = new Random();
                         AbstractCard randomThornCard = thornCardList.get(rand.nextInt(thornCardList.size()));
-                        AbstractCard randomCard = cardList.get(rand.nextInt(cardList.size()));
-                        if(isIronclad) {
+                        if (isIronclad) {
                             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(randomThornCard.makeCopy(), (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-                        }else{
-                            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(randomCard.makeCopy(), (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
+                        } else {
+                            AbstractDungeon.player.gainGold(gold);
                         }
 
                         break; // Onto screen 1 we go.
-                    case 1: // If you press button the second button (Button at index 1), in this case: Deinal
+                    case 1: //Gain relic
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[1]); // Update the text of the event
+                        this.imageEventText.updateDialogOption(0, OPTIONS[1]); // 1. Change the first button to the [Leave] button
+                        this.imageEventText.clearRemainingOptions(); // 2. and remove all others
+                        screenNum = 1; // Screen set the screen number to 1. Once we exit the switch (i) statement,
+                        // we'll still continue the switch (screenNum) statement. It'll find screen 1 and do it's actions
+                        // (in our case, that's the final screen, but you can chain as many as you want like that)
+                        if(isIronclad) {
+                            AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2), RelicLibrary.getRelic("DDmod:BarbedSlagRelic"));
+                        }else{
+                            AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2), AbstractDungeon.returnRandomRelic(AbstractDungeon.returnRandomRelicTier()));
+                        }
+                        break; // Onto screen 1 we go.
+                    case 2: //Leave
                         this.imageEventText.updateBodyText(DESCRIPTIONS[2]); // Update the text of the event
                         this.imageEventText.updateDialogOption(0, OPTIONS[1]); // 1. Change the first button to the [Leave] button
                         this.imageEventText.clearRemainingOptions(); // 2. and remove all others
@@ -93,6 +111,7 @@ public class ThornEvent extends AbstractImageEvent {
                         break;
                 }
                 break;
+
             case 1: // Welcome to screenNum = 1;
                 switch (i) {
                     case 0: // If you press the first (and this should be the only) button,
@@ -106,8 +125,8 @@ public class ThornEvent extends AbstractImageEvent {
     public void update() { // We need the update() when we use grid screens (such as, in this case, the screen for selecting a card to remove)
         super.update(); // Do everything the original update()
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) { // Once the grid screen isn't empty (we selected a card for removal)
-            AbstractCard c = (AbstractCard)AbstractDungeon.gridSelectScreen.selectedCards.get(0); // Get the card
-            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(c, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2))); // Create the card removal effect
+            AbstractCard c = (AbstractCard) AbstractDungeon.gridSelectScreen.selectedCards.get(0); // Get the card
+            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(c, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2))); // Create the card removal effect
             AbstractDungeon.player.masterDeck.removeCard(c); // Remove it from the deck
             AbstractDungeon.gridSelectScreen.selectedCards.clear(); // Or you can .remove(c) instead of clear,
             // if you want to continue using the other selected cards for something

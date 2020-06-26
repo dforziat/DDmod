@@ -26,9 +26,11 @@
       "You decline the offer and continue on your way"
     ],
     "OPTIONS": [
-      "[Accept] #gGain a random #yThorn card.",
+      "[Card] #gGain a random #yThorn card.",
       "[Leave]",
-      "[Accept] #gGain a random card."
+      "[Accept] #gGain #ygold.",
+      "[Relic] #gGain Barbed Slag relic.",
+      "[Relic] #gGain a random relic."
     ]
   }
 }

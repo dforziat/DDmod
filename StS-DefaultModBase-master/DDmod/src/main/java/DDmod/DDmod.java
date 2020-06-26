@@ -1,6 +1,7 @@
 package DDmod;
 
 import DDmod.events.ThornEvent;
+import DDmod.relics.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -18,6 +19,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -28,17 +33,14 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import DDmod.cards.*;
 import DDmod.characters.TheDefault;
-import DDmod.events.IdentityCrisisEvent;
 import DDmod.potions.PlaceholderPotion;
-import DDmod.relics.BottledPlaceholderRelic;
-import DDmod.relics.DefaultClickableRelic;
-import DDmod.relics.PlaceholderRelic;
-import DDmod.relics.PlaceholderRelic2;
 import DDmod.util.IDCheckDontTouchPls;
 import DDmod.util.TextureLoader;
 import DDmod.variables.DefaultCustomVariable;
@@ -87,6 +89,7 @@ public class DDmod implements
         EditCharactersSubscriber,
         PostDungeonInitializeSubscriber,
         PostPotionUseSubscriber,
+        PostPowerApplySubscriber,
         PostInitializeSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
@@ -386,15 +389,17 @@ public class DDmod implements
         logger.info("Adding relics");
         
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
+       // BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
+       // BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
+       // BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
+          BaseMod.addRelic(new BarbedSlagRelic(), RelicType.RED);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+       // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+       // UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        UnlockTracker.markRelicAsSeen(BarbedSlagRelic.ID);
         logger.info("Done adding relics!");
     }
     
@@ -555,6 +560,14 @@ public class DDmod implements
                     }
                 }
             }
+        }
+    }
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+        AbstractPlayer player = AbstractDungeon.player;
+        if(abstractPower.ID.equals(ThornsPower.POWER_ID) && player.hasRelic("DDmod:BarbedSlagRelic")){
+             BarbedSlagRelic barbedSlagRelic = (BarbedSlagRelic) player.getRelic("DDmod:BarbedSlagRelic");
+            AbstractDungeon.player.addPower(new ThornsPower(player, barbedSlagRelic.getThorns()));
         }
     }
 }

@@ -110,6 +110,10 @@
   },
   "DDmod:MulticlassingSkill": {
     "NAME": "Multiclassing",
-    "DESCRIPTION": "Add a random Rare card from any class to your hand. NL It cost 0."
+    "DESCRIPTION": "Add a random Rare card from any class to your hand. NL It costs 0."
+  },
+  "DDmod:PotionAddictCard": {
+    "NAME": "Potion Addict",
+    "DESCRIPTION": "Whenever you use a potion, double the effect. NL Exhaust."
   }
 }

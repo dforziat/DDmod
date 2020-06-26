@@ -34,7 +34,6 @@ public class MulticlassingSkill extends AbstractDynamicCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public static final String NAME = cardStrings.NAME;
-    public static final String UPGRADE_DESC = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/
 
 
@@ -59,6 +58,9 @@ public class MulticlassingSkill extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard randomCard = CardLibrary.getAnyColorCard(CardRarity.RARE);
+        while(randomCard.color == p.getCardColor()){
+            randomCard = CardLibrary.getAnyColorCard(CardRarity.RARE);
+        }
         randomCard.costForTurn = 0;
         AbstractDungeon.player.hand.addToHand(randomCard);
     }

@@ -18,5 +18,9 @@
 "DDmod:BurningFumesPower": {
         "NAME": "Burning Fumes",
         "DESCRIPTIONS": ["When a card is Exhausted, deal #b", " damage to all enemies.", "damage to all enemies."]
+},
+"DDmod:PotionAddictPower": {
+        "NAME": "Potion Addict",
+        "DESCRIPTIONS": ["Double the effectiveness of potions."]
 }
 }

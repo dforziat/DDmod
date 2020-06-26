@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,15 +34,22 @@ public class ThornEvent extends AbstractImageEvent {
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("ThornsEvent.jpg");
+    private static boolean isIronclad = false;
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
 
     public ThornEvent() {
         super(NAME, DESCRIPTIONS[0], IMG);
-
-        // The first dialogue options available to us.
-        imageEventText.setDialogOption(OPTIONS[0]); // Gain a random thorns card
+        if(AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.IRONCLAD) {
+            isIronclad = true;
+        }
+            // The first dialogue options available to us.
+        if(isIronclad){
+            imageEventText.setDialogOption(OPTIONS[0]); // Gain a random thorns card
+        }else{
+            imageEventText.setDialogOption(OPTIONS[2]); // Gain a random card
+        }
         imageEventText.setDialogOption(OPTIONS[1]); // Leave
 
     }
@@ -68,9 +76,12 @@ public class ThornEvent extends AbstractImageEvent {
                          }
                         Random rand = new Random();
                         AbstractCard randomThornCard = thornCardList.get(rand.nextInt(thornCardList.size()));
-                        //AbstractDungeon.cardRewardScreen.rewardGroup.add(randomThornCard);
-                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(randomThornCard.makeCopy(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
-                        //AbstractDungeon.player.masterDeck.addToBottom(randomThornCard);
+                        AbstractCard randomCard = cardList.get(rand.nextInt(cardList.size()));
+                        if(isIronclad) {
+                            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(randomThornCard.makeCopy(), (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
+                        }else{
+                            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(randomCard.makeCopy(), (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
+                        }
 
                         break; // Onto screen 1 we go.
                     case 1: // If you press button the second button (Button at index 1), in this case: Deinal

@@ -4,8 +4,11 @@ import DDmod.events.ThornEvent;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.devcommands.potions.Potions;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.PotionGetHooks;
+import basemod.patches.com.megacrit.cardcrawl.ui.panels.PotionPopUp.PrePotionUseHookTargetMode;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
@@ -14,10 +17,17 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.MonsterHelper;
+import com.megacrit.cardcrawl.helpers.PotionHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,6 +47,7 @@ import DDmod.variables.DefaultSecondMagicNumber;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Properties;
 
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -75,6 +86,7 @@ public class DDmod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostDungeonInitializeSubscriber,
+        PostPotionUseSubscriber,
         PostInitializeSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
@@ -420,6 +432,7 @@ public class DDmod implements
         BaseMod.addCard(new SpikeShotSkill());
         BaseMod.addCard(new RechargeSkill());
         BaseMod.addCard(new MulticlassingSkill());
+        BaseMod.addCard(new PotionAddictCard());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -439,6 +452,7 @@ public class DDmod implements
         UnlockTracker.unlockCard(SpikeShotSkill.ID);
         UnlockTracker.unlockCard(RechargeSkill.ID);
         UnlockTracker.unlockCard(MulticlassingSkill.ID);
+        UnlockTracker.unlockCard(PotionAddictCard.ID);
 
 
         logger.info("Done adding cards!");
@@ -523,4 +537,24 @@ public class DDmod implements
     }
 
 
+    @Override
+    public void receivePostPotionUse(AbstractPotion abstractPotion) {
+        if(AbstractDungeon.player.hasPower("DDmod:PotionAddictPower")) {
+            for(int i = 1; i < AbstractDungeon.player.getPower("DDmod:PotionAddictPower").amount * 2; i++){
+                if(!abstractPotion.targetRequired) {
+                    abstractPotion.makeCopy().use(AbstractDungeon.player);
+                }else{
+                    AbstractPotion copy = abstractPotion.makeCopy();
+                    copy.isThrown = true;
+                    ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
+                    for(AbstractGameAction a : actions){
+                        if(a.target instanceof AbstractMonster){
+                            copy.use(a.target);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

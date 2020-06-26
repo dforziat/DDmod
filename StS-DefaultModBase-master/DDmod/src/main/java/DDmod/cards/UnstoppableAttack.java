@@ -57,7 +57,6 @@ public class UnstoppableAttack extends CustomCard {
         baseDamage = DAMAGE;
         exhaust = true;
         baseBlock = BLOCK;
-        this.tags.add(CardTags.HEALING);
     }
 
     // Actions the card should do.

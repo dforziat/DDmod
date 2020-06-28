@@ -33,6 +33,7 @@ public class BurningFumesPower extends AbstractPower implements CloneablePowerIn
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private boolean justApplied = true;
+    private int[] damageAr = {0};
 
 
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
@@ -45,9 +46,9 @@ public class BurningFumesPower extends AbstractPower implements CloneablePowerIn
         ID = POWER_ID;
 
         this.owner = owner;
-        this.amount = amount;
 
-        type = PowerType.BUFF;
+        damageAr[0] = amount;
+        this.amount = damageAr[0];
         isTurnBased = false;
 
         // We load those txtures here.
@@ -59,7 +60,8 @@ public class BurningFumesPower extends AbstractPower implements CloneablePowerIn
 
 
     public void onExhaust(AbstractCard card) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction((AbstractPlayer) owner, amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE ));
+        damageAr[0] = AbstractDungeon.player.getPower("DDmod:BurningFumesPower").amount;
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction((AbstractPlayer) owner, damageAr, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE ));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

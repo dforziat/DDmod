@@ -36,7 +36,7 @@ public class PotionAddictCard extends AbstractDynamicCard {
 
     private static final int COST = 2;
     private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int UPGRADE_COST = 1;
 
     // /STAT DECLARATION/
 
@@ -59,8 +59,8 @@ public class PotionAddictCard extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_MAGIC);
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeBaseCost(UPGRADE_COST);
+           // upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

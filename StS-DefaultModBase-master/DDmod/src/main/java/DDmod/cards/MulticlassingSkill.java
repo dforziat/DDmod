@@ -45,24 +45,30 @@ public class MulticlassingSkill extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 3;
-    private static final int UPGRADE_COST= 1;
+    private static final int COST = 1;
+    //private static final int UPGRADE_COST= 1;
 
     // /STAT DECLARATION/
 
 
     public MulticlassingSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        exhaust = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard randomCard = CardLibrary.getAnyColorCard(CardRarity.RARE);
-        while(randomCard.color == p.getCardColor()){
+        while(randomCard.color == p.getCardColor() || randomCard.color == CardColor.COLORLESS){
             randomCard = CardLibrary.getAnyColorCard(CardRarity.RARE);
         }
         randomCard.costForTurn = 0;
+        if(this.upgraded){
+            randomCard.upgrade();
+            randomCard.upgraded = true;
+            //Master Reality doesnt upgrade
+        }
         AbstractDungeon.player.hand.addToHand(randomCard);
     }
 
@@ -71,7 +77,8 @@ public class MulticlassingSkill extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+           // upgradeBaseCost(UPGRADE_COST);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

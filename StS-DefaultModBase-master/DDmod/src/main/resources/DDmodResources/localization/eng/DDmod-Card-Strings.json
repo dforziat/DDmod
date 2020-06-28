@@ -56,7 +56,7 @@
   },
   "DDmod:UnstoppableAttack": {
     "NAME": "Unstoppable",
-    "DESCRIPTION": "Deal !D! damage and heal for !D!. NL Gain !B! block. NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage and heal for !D!. NL Gain !B! block. NL Exhaust."
   },
   "DDmod:EasePowerCard": {
     "NAME": "Ease",
@@ -110,7 +110,8 @@
   },
   "DDmod:MulticlassingSkill": {
     "NAME": "Multiclassing",
-    "DESCRIPTION": "Add a random Rare card from any class to your hand. NL It costs 0."
+    "DESCRIPTION": "Add a random Rare card from another class to your hand. It costs 0. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add a random [#FFC300]Upgraded[] Rare card from another class to your hand. It costs 0. NL Exhaust."
   },
   "DDmod:PotionAddictCard": {
     "NAME": "Potion Addict",

@@ -116,5 +116,14 @@
   "DDmod:PotionAddictCard": {
     "NAME": "Potion Addict",
     "DESCRIPTION": "Whenever you use a potion, double the effect. NL Exhaust."
+  },
+  "DDmod:SpikeMailSkill": {
+    "NAME": "Spike Mail",
+    "DESCRIPTION": "Gain !B! Block and 1 Thorns."
+  },
+  "DDmod:SpikeInjectionSkill": {
+    "NAME": "Spike Injection",
+    "DESCRIPTION": "Gain 3 Thorns, shuffle a Wound into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"Gain 3 Thorns, shuffle a Wound into your draw pile."
   }
 }

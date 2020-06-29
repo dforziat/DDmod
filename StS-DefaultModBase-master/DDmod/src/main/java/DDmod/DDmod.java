@@ -438,6 +438,8 @@ public class DDmod implements
         BaseMod.addCard(new RechargeSkill());
         BaseMod.addCard(new MulticlassingSkill());
         BaseMod.addCard(new PotionAddictCard());
+        BaseMod.addCard(new SpikeMailSkill());
+        BaseMod.addCard(new SpikeInjectionSkill());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -458,6 +460,8 @@ public class DDmod implements
         UnlockTracker.unlockCard(RechargeSkill.ID);
         UnlockTracker.unlockCard(MulticlassingSkill.ID);
         UnlockTracker.unlockCard(PotionAddictCard.ID);
+        UnlockTracker.unlockCard(SpikeMailSkill.ID);
+        UnlockTracker.unlockCard(SpikeInjectionSkill.ID);
 
 
         logger.info("Done adding cards!");

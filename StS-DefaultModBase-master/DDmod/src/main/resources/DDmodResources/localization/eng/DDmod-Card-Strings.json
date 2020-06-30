@@ -125,5 +125,13 @@
     "NAME": "Spike Injection",
     "DESCRIPTION": "Gain 3 Thorns, shuffle a Wound into your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION":"Gain 3 Thorns, shuffle a Wound into your draw pile."
+  },
+  "DDmod:EyeForAnEyeSkill": {
+    "NAME": "Eye For An Eye",
+    "DESCRIPTION": "Gain 5 Strength, add an Injury into your deck."
+  },
+  "DDmod:CallousedSkill": {
+    "NAME": "Calloused",
+    "DESCRIPTION": "Lose 6 HP and gain !B! Block."
   }
 }

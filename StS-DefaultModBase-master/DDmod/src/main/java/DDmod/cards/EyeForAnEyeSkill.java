@@ -67,7 +67,7 @@ public class EyeForAnEyeSkill extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH)));
         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Injury(),  (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-       // p.masterDeck.addToRandomSpot(new Injury());
+        AbstractDungeon.player.drawPile.addToRandomSpot(new Injury());
     }
 
     //Upgraded stats.

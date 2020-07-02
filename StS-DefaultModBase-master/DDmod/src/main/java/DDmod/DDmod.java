@@ -1,6 +1,8 @@
 package DDmod;
 
 import DDmod.events.ThornEvent;
+import DDmod.potions.ChoicePotion;
+import DDmod.potions.CleansePotion;
 import DDmod.relics.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
@@ -374,10 +376,10 @@ public class DDmod implements
         logger.info("Beginning to edit potions");
         
         // Class Specific Potion. If you want your potion to not be class-specific,
-        // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
+        // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEF
         // Remember, you can press ctrl+P inside parentheses like addPotions)
        // BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
-        
+        BaseMod.addPotion(CleansePotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, CleansePotion.POTION_ID);
         logger.info("Done editing potions");
     }
     
@@ -395,6 +397,7 @@ public class DDmod implements
        // BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
        // BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
           BaseMod.addRelic(new BarbedSlagRelic(), RelicType.RED);
+          BaseMod.addRelic(new FlexRelic(), RelicType.RED);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
        // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
@@ -444,6 +447,7 @@ public class DDmod implements
         BaseMod.addCard(new SpikeInjectionSkill());
         BaseMod.addCard(new EyeForAnEyeSkill());
         BaseMod.addCard(new CallousedSkill());
+       // BaseMod.addCard(new ChoiceSkill());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -513,6 +517,10 @@ public class DDmod implements
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 getModID() + "Resources/localization/eng/DDmod-Orb-Strings.json");
+
+        //UI String
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/eng/DDmod-UI-Strings.json");
         
         logger.info("Done editing strings");
     }

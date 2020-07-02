@@ -133,5 +133,9 @@
   "DDmod:CallousedSkill": {
     "NAME": "Calloused",
     "DESCRIPTION": "Lose 6 HP and gain !B! Block."
-  }
+  },
+  "DDmod:ChoiceSkill": {
+  "NAME": "Choice",
+  "DESCRIPTION": "Choose one of three."
+}
 }

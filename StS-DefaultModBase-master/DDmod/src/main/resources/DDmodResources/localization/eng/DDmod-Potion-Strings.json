@@ -2,5 +2,13 @@
 "DDmod:PlaceholderPotion": {
         "NAME": "Placeholder Potion",
         "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
+},
+"DDmod:ChoicePotion": {
+        "NAME": "Choice Potion",
+        "DESCRIPTIONS": ["Choose an effect."]
+},
+"DDmod:CleansePotion": {
+        "NAME": "Cleanse Potion",
+        "DESCRIPTIONS": ["Remove all Weak and Frail."]
 }
 }

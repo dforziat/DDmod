@@ -37,5 +37,13 @@
       "DESCRIPTIONS": [
         "Whenever you gain Thorns, gain 1 more."
       ]
-    }
+    },
+
+  "DDmod:FlexRelic": {
+    "NAME": "Flex",
+    "FLAVOR": "Dangerous to hold, but useful nonetheless.",
+    "DESCRIPTIONS": [
+      "You can now gain +1 Dex at rest sites."
+    ]
+  }
   }

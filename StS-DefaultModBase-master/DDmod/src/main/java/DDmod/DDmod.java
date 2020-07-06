@@ -1,17 +1,13 @@
 package DDmod;
 
 import DDmod.events.ThornEvent;
-import DDmod.potions.ChoicePotion;
 import DDmod.potions.CleansePotion;
 import DDmod.relics.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.devcommands.potions.Potions;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.PotionGetHooks;
-import basemod.patches.com.megacrit.cardcrawl.ui.panels.PotionPopUp.PrePotionUseHookTargetMode;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
@@ -22,29 +18,22 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.MonsterHelper;
-import com.megacrit.cardcrawl.helpers.PotionHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import jdk.nashorn.internal.codegen.CompilerConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import DDmod.cards.*;
 import DDmod.characters.TheDefault;
-import DDmod.potions.PlaceholderPotion;
 import DDmod.util.IDCheckDontTouchPls;
 import DDmod.util.TextureLoader;
 import DDmod.variables.DefaultCustomVariable;
@@ -179,6 +168,10 @@ public class DDmod implements
     
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
+    }
+
+    public static String makeUIPath(String resourcePath) {
+        return getModID() + "Resources/images/ui/" + resourcePath;
     }
     
     // =============== /MAKE IMAGE PATHS/ =================
@@ -379,7 +372,7 @@ public class DDmod implements
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEF
         // Remember, you can press ctrl+P inside parentheses like addPotions)
        // BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
-        BaseMod.addPotion(CleansePotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, CleansePotion.POTION_ID);
+        BaseMod.addPotion(CleansePotion.class, Color.CORAL, Color.CORAL, Color.CORAL, CleansePotion.POTION_ID);
         logger.info("Done editing potions");
     }
     
@@ -397,7 +390,7 @@ public class DDmod implements
        // BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
        // BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
           BaseMod.addRelic(new BarbedSlagRelic(), RelicType.RED);
-          BaseMod.addRelic(new FlexRelic(), RelicType.RED);
+          BaseMod.addRelic(new StuhbiRelic(), RelicType.RED);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
        // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
@@ -405,6 +398,7 @@ public class DDmod implements
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
        // UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
         UnlockTracker.markRelicAsSeen(BarbedSlagRelic.ID);
+        UnlockTracker.markRelicAsSeen(StuhbiRelic.ID);
         logger.info("Done adding relics!");
     }
     

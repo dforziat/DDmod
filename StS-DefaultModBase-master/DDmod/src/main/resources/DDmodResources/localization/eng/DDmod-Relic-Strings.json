@@ -39,9 +39,9 @@
       ]
     },
 
-  "DDmod:FlexRelic": {
-    "NAME": "Flex",
-    "FLAVOR": "Dangerous to hold, but useful nonetheless.",
+  "DDmod:StuhbiRelic": {
+    "NAME": "Stuhbi",
+    "FLAVOR": "Boots that enhance dexterity and style too.",
     "DESCRIPTIONS": [
       "You can now gain +1 Dex at rest sites."
     ]

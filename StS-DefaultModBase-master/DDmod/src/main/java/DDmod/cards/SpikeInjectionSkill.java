@@ -33,7 +33,7 @@ public class SpikeInjectionSkill extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = DDmod.makeID(SpikeInjectionSkill.class.getSimpleName());
-    public static final String IMG = makeCardPath("MulticlassingSkill.png");
+    public static final String IMG = makeCardPath("spikeInjection.png");
 
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

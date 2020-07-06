@@ -29,7 +29,7 @@ public class SpikeMailSkill extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = DDmod.makeID(SpikeMailSkill.class.getSimpleName());
-    public static final String IMG = makeCardPath("MulticlassingSkill.png");
+    public static final String IMG = makeCardPath("spikemail.png");
 
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

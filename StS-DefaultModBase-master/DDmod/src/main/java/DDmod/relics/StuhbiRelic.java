@@ -17,18 +17,18 @@ import java.util.ArrayList;
 
 import static DDmod.DDmod.makeRelicPath;
 
-public class FlexRelic extends CustomRelic {
+public class StuhbiRelic extends CustomRelic {
 
     // ID, images, text.
-    public static final String ID = DDmod.makeID("FlexRelic");
+    public static final String ID = DDmod.makeID("StuhbiRelic");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("BarbedSlag64.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicPath("BarbedSlag64.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("stuhbi64.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicPath("stuhbi64.png"));
 
     public static final int DEX_LIMIT = 3;
 
-    public FlexRelic() {
-        super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.FLAT);
+    public StuhbiRelic() {
+        super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.FLAT);
         this.counter = 0;
     }
 
@@ -49,7 +49,7 @@ public class FlexRelic extends CustomRelic {
     }
 
     public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
-        options.add(new DexOption(this.counter < 3));
+        options.add(new DexOption(this.counter < DEX_LIMIT));
     }
 
 }

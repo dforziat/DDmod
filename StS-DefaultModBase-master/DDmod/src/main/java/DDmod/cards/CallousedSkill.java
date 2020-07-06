@@ -29,7 +29,7 @@ public class CallousedSkill extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = DDmod.makeID(CallousedSkill.class.getSimpleName());
-    public static final String IMG = makeCardPath("MulticlassingSkill.png");
+    public static final String IMG = makeCardPath("calloused.png");
 
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

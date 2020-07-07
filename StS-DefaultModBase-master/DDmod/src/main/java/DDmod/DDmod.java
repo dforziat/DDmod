@@ -439,7 +439,7 @@ public class DDmod implements
         BaseMod.addCard(new PotionAddictCard());
         BaseMod.addCard(new SpikeMailSkill());
         BaseMod.addCard(new SpikeInjectionSkill());
-        BaseMod.addCard(new EyeForAnEyeSkill());
+       // BaseMod.addCard(new EyeForAnEyeSkill());
         BaseMod.addCard(new CallousedSkill());
        // BaseMod.addCard(new ChoiceSkill());
 
@@ -464,7 +464,7 @@ public class DDmod implements
         UnlockTracker.unlockCard(PotionAddictCard.ID);
         UnlockTracker.unlockCard(SpikeMailSkill.ID);
         UnlockTracker.unlockCard(SpikeInjectionSkill.ID);
-        UnlockTracker.unlockCard(EyeForAnEyeSkill.ID);
+      //  UnlockTracker.unlockCard(EyeForAnEyeSkill.ID);
         UnlockTracker.unlockCard(CallousedSkill.ID);
 
 

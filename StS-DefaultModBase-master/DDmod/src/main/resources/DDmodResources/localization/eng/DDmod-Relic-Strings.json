@@ -41,7 +41,7 @@
 
   "DDmod:StuhbiRelic": {
     "NAME": "Stuhbi",
-    "FLAVOR": "Boots that enhance dexterity and style too.",
+    "FLAVOR": "Boots that enhance dexterity and style.",
     "DESCRIPTIONS": [
       "You can now gain +1 Dex at rest sites."
     ]

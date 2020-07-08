@@ -1,5 +1,6 @@
 package DDmod.cards;
 
+import DDmod.util.CustomTags;
 import basemod.BaseMod;
 import basemod.devcommands.hand.Hand;
 import basemod.helpers.BaseModCardTags;
@@ -58,6 +59,7 @@ public class SpikeInjectionSkill extends AbstractDynamicCard {
     public SpikeInjectionSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
+        this.tags.add(CustomTags.THORNS);
     }
 
     // Actions the card should do.

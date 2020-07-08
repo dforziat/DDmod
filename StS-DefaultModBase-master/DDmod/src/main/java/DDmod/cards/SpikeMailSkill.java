@@ -1,5 +1,6 @@
 package DDmod.cards;
 
+import DDmod.util.CustomTags;
 import basemod.BaseMod;
 import basemod.devcommands.hand.Hand;
 import basemod.helpers.BaseModCardTags;
@@ -56,6 +57,7 @@ public class SpikeMailSkill extends AbstractDynamicCard {
     public SpikeMailSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.block = baseBlock = BLOCK;
+        this.tags.add(CustomTags.THORNS);
     }
 
     // Actions the card should do.
